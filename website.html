@@ -1,0 +1,31 @@
+<html>
+  <body  onload="setCookie()">
+	<form>
+	  Name: <input type="text" name="name"><br>
+	  E-mail: <input type="text" name="email"><br>
+	  <button onclick="paste()">Submit</button> 
+	</form>
+  </body>
+  <script>
+    function getCookie()
+    {
+        let x = document.cookie;
+        alert(x);
+    }
+    function setCookie()
+    {
+	    console.log("Script Loaded")
+        document.cookie ="username=ABCD;expires=Thu, 14 July 2022 12:00:00 UTC; path=/"
+    }
+	function paste()
+	{
+		navigator.clipboard.readText()
+		.then(text => {
+			console.log('Pasted content: ', text);
+		})
+		.catch(err => {
+		console.error('Failed to read clipboard contents: ', err);
+		});
+	}
+  </script>
+</html>
